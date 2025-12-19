@@ -1,0 +1,33 @@
+# robots.txt for https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/
+# Purpose: allow crawlers to index the multilingual test site while giving polite crawl-rate hints.
+# Sitemap: used by crawlers to discover all language pages and translations.
+Sitemap: https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/sitemap.xml
+
+# Default - allow everything
+User-agent: *
+Allow: /
+# Polite hint: reduce crawl request rate for non-Google crawlers that respect Crawl-delay.
+# (Googlebot ignores Crawl-delay; it uses other signals.)
+Crawl-delay: 5
+
+# Specific bot rules (optional / advisory)
+# Bing respects Crawl-delay; give a small delay so heavy crawls don't overload Pages serving.
+User-agent: Bingbot
+Crawl-delay: 5
+
+# Yandex often respects Crawl-delay (set a slightly higher value if needed)
+User-agent: Yandex
+Crawl-delay: 10
+
+# Block common directories that typically shouldn't be crawled if they happen to exist.
+# If you don't have these paths, these rules have no effect — they are defensive.
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /wp-admin/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /secret/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# End of file
