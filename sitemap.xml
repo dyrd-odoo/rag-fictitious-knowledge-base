@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Replace base with your Pages URL if it's different -->
+  <url>
+    <loc>https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/</loc>
+  </url>
+  <url>
+    <loc>https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/languages/en/</loc>
+  </url>
+  <url>
+    <loc>https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/languages/en/index.html</loc>
+  </url>
+  <url>
+    <loc>https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/languages/fr/</loc>
+  </url>
+  <url>
+    <loc>https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/languages/fr/index.html</loc>
+  </url>
+</urlset>
