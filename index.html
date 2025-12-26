@@ -3,44 +3,160 @@
 <head>
   <meta charset="utf-8" />
   <title>RAG Fictitious Knowledge Base — Language selector</title>
-  <meta name="description" content="Select your language for the RAG test site." />
-  <link rel="alternate" hreflang="en" href="/rag-fictitious-knowledge-base/en/" />
-  <link rel="alternate" hreflang="fr" href="/rag-fictitious-knowledge-base/fr/" />
-  <link rel="alternate" hreflang="x-default" href="/rag-fictitious-knowledge-base/en/" />
+  <meta name="description" content="Multilingual fictional knowledge base for Retrieval-Augmented Generation (RAG) testing." />
+
+  <!-- hreflang alternates -->
+  <link rel="alternate" hreflang="en" href="/rag-fictitious-knowledge-base/languages/en/basic-tests.html" />
+  <link rel="alternate" hreflang="fr" href="/rag-fictitious-knowledge-base/languages/fr/basic-tests.html" />
+  <link rel="alternate" hreflang="pt" href="/rag-fictitious-knowledge-base/languages/pt/basic-tests.html" />
+  <link rel="alternate" hreflang="ar" href="/rag-fictitious-knowledge-base/languages/ar/basic-tests.html" />
+  <link rel="alternate" hreflang="x-default" href="/rag-fictitious-knowledge-base/languages/en/basic-tests.html" />
+
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
   <style>
-    body { font-family: system-ui, Arial, sans-serif; padding: 2rem; max-width: 48rem; margin: auto; }
-    nav a { margin-right: 1rem; }
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      padding: 2rem;
+      max-width: 48rem;
+      margin: auto;
+      line-height: 1.6;
+      color: #222;
+    }
+
+    nav a {
+      margin-right: 1rem;
+      font-weight: 600;
+    }
+
+    h1, h2, h3 {
+      color: #003366;
+    }
+
+    .warning {
+      background: #fff3cd;
+      border: 1px solid #ffeeba;
+      padding: 1rem;
+      margin: 2rem 0;
+    }
+
+    section {
+      margin-top: 3rem;
+    }
+
+    footer {
+      margin-top: 4rem;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+      font-size: 0.9em;
+      color: #555;
+    }
   </style>
 </head>
+
 <body>
   <header>
     <h1>RAG Fictitious Knowledge Base</h1>
-    <p>Choose a language to begin crawling the test site.</p>
+    <p>
+      A static, multilingual website containing <strong>entirely fictional content</strong>
+      designed to evaluate Retrieval-Augmented Generation (RAG) systems.
+    </p>
   </header>
 
   <nav>
-    <a href="/rag-fictitious-knowledge-base/languages/en/">English</a>
-    <a href="/rag-fictitious-knowledge-base/languages/fr/">Français</a>
+    <a href="/rag-fictitious-knowledge-base/languages/en/basic-tests.html">English</a>
+    <a href="/rag-fictitious-knowledge-base/languages/fr/basic-tests.html">Français</a>
+    <a href="/rag-fictitious-knowledge-base/languages/pt/basic-tests.html">Português</a>
+    <a href="/rag-fictitious-knowledge-base/languages/ar/basic-tests.html">العربية</a>
   </nav>
 
+  <div class="warning">
+    <strong>Important notice</strong>
+    <ul>
+      <li>All entities, events, metrics, and facts are fictional.</li>
+      <li>This repository exists solely for AI retrieval and grounding evaluation.</li>
+      <li>No content should be interpreted as real-world information.</li>
+    </ul>
+  </div>
+
   <main>
-    <h2>About</h2>
-    <p>This repository hosts identical content in multiple languages for multilingual RAG testing. Each language is served from its own folder so crawlers and agents can index language-specific pages at distinct URLs.</p>
+    <section>
+      <h2>About this repository</h2>
+      <p>
+        This repository hosts a controlled fictional knowledge base used to test
+        document ingestion, chunking strategies, retrieval accuracy, and hallucination
+        resistance in RAG pipelines.
+      </p>
+      <p>
+        Each language version exposes equivalent content at a stable URL, enabling
+        consistent multilingual indexing and retrieval experiments.
+      </p>
+    </section>
 
-    <h3>Quick start</h3>
-    <ol>
-      <li>Click a language above to browse the translated pages.</li>
-      <li>
-        Or configure GitHub Pages to serve this repository
-        (<a href="https://github.com/dyrd-odoo/rag-fictitious-knowledge-base" target="_blank" rel="noopener noreferrer">see README</a>).
-      </li>
+    <section>
+      <h2>Available test documents</h2>
+      <ul>
+        <li>
+          <strong>English:</strong>
+          <a href="/rag-fictitious-knowledge-base/languages/en/basic-tests.html">
+            AI RAG Testing Website — Fictional Knowledge Base
+          </a>
+        </li>
+        <li>
+          <strong>Français :</strong>
+          <a href="/rag-fictitious-knowledge-base/languages/fr/basic-tests.html">
+            Site de test RAG — Base de connaissances fictive
+          </a>
+        </li>
+        <li>
+          <strong>Português:</strong>
+          <a href="/rag-fictitious-knowledge-base/languages/pt/basic-tests.html">
+            Site de testes RAG — Base de conhecimento fictícia
+          </a>
+        </li>
+        <li>
+          <strong>العربية:</strong>
+          <a href="/rag-fictitious-knowledge-base/languages/ar/basic-tests.html">
+            موقع اختبار RAG — قاعدة معرفة خيالية
+          </a>
+        </li>
+      </ul>
+    </section>
 
-    </ol>
+    <section>
+      <h2>Intended RAG use cases</h2>
+      <ul>
+        <li>Semantic and keyword retrieval comparison</li>
+        <li>Multi-hop reasoning across sections</li>
+        <li>Grounded question answering</li>
+        <li>Hallucination detection when answers are absent</li>
+        <li>Cross-language retrieval consistency</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Quick start</h3>
+      <ol>
+        <li>Select a language above to begin crawling the test content.</li>
+        <li>
+         For testing questions, refer back to the GitHub Repo's          
+          (<a href="https://github.com/dyrd-odoo/rag-fictitious-knowledge-base"
+              target="_blank"
+              rel="noopener noreferrer">README</a>).
+        </li>
+      </ol>
+    </section>
   </main>
 
   <footer>
-    <p><small>Pages: <a href="/rag-fictitious-knowledge-base/sitemap.xml">sitemap</a> — <a href="/rag-fictitious-knowledge-base/robots.txt">robots.txt</a></small></p>
+    <p>
+      <small>
+        Pages:
+        <a href="/rag-fictitious-knowledge-base/sitemap.xml">sitemap</a>
+        —
+        <a href="/rag-fictitious-knowledge-base/robots.txt">robots.txt</a>
+      </small>
+    </p>
   </footer>
 </body>
 </html>
