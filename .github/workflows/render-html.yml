@@ -1,0 +1,145 @@
+name: Render HTML → DOCX / PDF / TXT (commit to branch)
+
+on:
+  push:
+    paths:
+      - '**/*.html'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    # Prevent infinite loop: don't run when pushing to the rendered-artifacts branch
+    if: github.ref != 'refs/heads/rendered-artifacts'
+    name: Render HTML files and commit
+    runs-on: ubuntu-latest
+    # Use pandoc + TeX for reliable PDF generation
+    container:
+      image: pandoc/latex:3.1
+      options: --user root
+
+    steps:
+      - name: Checkout repository (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Find HTML files under languages/
+        id: find_html
+        run: |
+          # List tracked HTML files and keep only those under languages/, excluding index.html
+          git ls-files '*.html' | grep '^languages/' | grep -v '/index.html$' > html_list.txt || true
+          if [ ! -s html_list.txt ]; then
+            echo "no_html=true" >> $GITHUB_OUTPUT
+            echo "No HTML files found under languages/."
+          else
+            echo "no_html=false" >> $GITHUB_OUTPUT
+            echo "Found HTML files:"
+            cat html_list.txt
+          fi
+
+      - name: Convert HTML → DOCX, PDF, TXT (flattened, prefixed by language)
+        if: steps.find_html.outputs.no_html != 'true'
+        run: |
+          set -euo pipefail
+          rm -rf out
+          mkdir -p out
+          
+          while IFS= read -r html; do
+            [ -z "$html" ] && continue
+
+            # Safety check: skip any index.html files
+            if [ "$(basename "$html")" = "index.html" ]; then
+              echo "Skipping index: $html"
+              continue
+            fi
+
+            # Extract language code (first subdirectory under languages/)
+            # Example: languages/es/file.html → lang="es"
+            lang="$(echo "$html" | cut -d'/' -f2)"
+
+            # Get the relative path after the language directory
+            # Example: languages/es/subdir/file.html → "subdir/file.html"
+            rel_after_lang="${html#languages/$lang/}"
+            
+            # Remove .html extension
+            name_no_ext="${rel_after_lang%.html}"
+            
+            # Replace directory separators with underscores for flat output
+            # Example: "subdir/file" → "subdir_file"
+            safe_name="$(echo "$name_no_ext" | tr '/' '_')"
+            
+            # Final output filename format: {lang}_{safe_name}.{ext}
+            # Example: "es_subdir_file.docx"
+            outbase="${lang}_${safe_name}"
+
+            outdir="out"
+            mkdir -p "$outdir"
+
+            echo "Rendering $html → $outdir/${outbase}.{docx,pdf,txt}"
+
+            # Convert to DOCX (Microsoft Word format)
+            pandoc "$html" -f html -t docx -o "$outdir/${outbase}.docx"
+
+            # Convert to plain text
+            pandoc "$html" -f html -t plain -o "$outdir/${outbase}.txt"
+
+            # Convert to PDF using XeLaTeX (better Unicode/font support)
+            pandoc "$html" -f html -o "$outdir/${outbase}.pdf" \
+              --pdf-engine=xelatex \
+              -V geometry:margin=1in
+          done < html_list.txt
+
+      - name: Prepare git and commit to rendered-artifacts branch
+        if: steps.find_html.outputs.no_html != 'true'
+        run: |
+          set -euo pipefail
+          
+          # Configure Git identity for the commit
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Set up authentication for pushing (required in container environment)
+          git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+
+          # Fetch and checkout the rendered-artifacts branch (create if doesn't exist)
+          if git fetch origin rendered-artifacts:rendered-artifacts 2>/dev/null; then
+            git checkout rendered-artifacts
+          else
+            # Create orphan branch to keep history separate from main codebase
+            git checkout --orphan rendered-artifacts
+            # Remove all files from staging (we only want rendered outputs)
+            git rm -rf . || true
+          fi
+
+          # Remove previous rendered files and replace with new ones
+          rm -rf rendered-docs
+          mkdir -p rendered-docs
+          
+          # Copy newly generated files into the branch
+          cp -a out/. rendered-docs/
+
+          # Stage all changes
+          git add -A rendered-docs
+
+          # Check if there are actually changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to rendered-docs to commit."
+            exit 0
+          fi
+
+          # Commit with timestamp and [skip ci] to prevent triggering this workflow again
+          timestamp="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git commit -m "Rendered docs: $timestamp [skip ci]"
+
+          # Push to the rendered-artifacts branch
+          git push origin rendered-artifacts
+
+      - name: Show pushed files (for logs)
+        if: steps.find_html.outputs.no_html != 'true'
+        run: |
+          echo "Files in rendered-docs/:"
+          find rendered-docs -type f -print 2>/dev/null || echo "No files found"
