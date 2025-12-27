@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Install Git in container
         run: |
-          apk add --no-cache git font-noto-arabic
+          apk add --no-cache git fontconfig ttf-dejavu
 
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -75,12 +75,12 @@ jobs:
             
             # PDF conversion with language-specific settings
             if [ "$lang" = "ar" ]; then
-              # Arabic: needs RTL support and proper fonts
+              # Arabic: needs RTL support and fonts that handle both Arabic and Latin
               pandoc "$html" -f html -o "$outdir/${outbase}.pdf" \
                 --pdf-engine=xelatex \
-                -V mainfont="Noto Sans Arabic" \
+                -V mainfont="DejaVu Sans" \
                 -V geometry:margin=1in \
-                --variable=dir:rtl
+                -V bidi:true
             else
               # Other languages: standard conversion
               pandoc "$html" -f html -o "$outdir/${outbase}.pdf" \
