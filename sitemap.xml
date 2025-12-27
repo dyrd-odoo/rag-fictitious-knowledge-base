@@ -1,19 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Replace base with your Pages URL if it's different -->
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
   </url>
+
   <url>
-    <loc>https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/languages/en/</loc>
+    <loc>https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/languages/en/basic-tests.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
+
   <url>
-    <loc>https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/languages/en/index.html</loc>
+    <loc>https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/languages/fr/basic-tests.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
+
   <url>
-    <loc>https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/languages/fr/</loc>
+    <loc>https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/languages/pt/basic-tests.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
+
   <url>
-    <loc>https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/languages/fr/index.html</loc>
+    <loc>https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/languages/ar/basic-tests.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
+
 </urlset>
+
