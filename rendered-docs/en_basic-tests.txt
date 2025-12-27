@@ -1,0 +1,84 @@
+AI RAG Testing Website
+
+This website is a fictional knowledge base created exclusively for
+testing Retrieval-Augmented Generation (RAG) systems.
+
+Important:
+
+-   All people, companies, technologies, and facts on this page are
+    entirely fictional.
+-   This content should not be treated as real-world information.
+-   The sole purpose is to evaluate document ingestion, chunking,
+    retrieval, and grounding.
+
+Overview of the Fictional Domain
+
+The fictional domain described here revolves around a company called
+Orion Analytics Group (OAG), a research lab focused on experimental
+artificial intelligence systems. OAG operates in the imaginary city of
+Nova Cascadia.
+
+OAG is known for developing internal tools that combine symbolic
+reasoning, vector-based retrieval, and narrative-driven datasets.
+
+Fictional Company: Orion Analytics Group
+
+Orion Analytics Group was founded in 2031 by Dr. Helena Voss, a
+fictional AI researcher.
+
+The company has three internal departments:
+
+-   Astra Division – Focuses on data ingestion and embeddings.
+-   Kepler Division – Responsible for retrieval pipelines and ranking
+    algorithms.
+-   Atlas Division – Handles evaluation, hallucination detection, and
+    grounding metrics.
+
+Fictional Technology: LUMA Index
+
+The LUMA Index is a proprietary scoring system created by OAG. It
+measures how accurately an AI system answers questions using retrieved
+context.
+
+The LUMA Index is calculated using three fictional factors:
+
+1.  Context Alignment Score (CAS)
+2.  Retrieval Precision Factor (RPF)
+3.  Answer Grounding Coefficient (AGC)
+
+A LUMA Index above 0.82 is considered acceptable for internal testing,
+while anything below 0.70 triggers a manual review.
+
+Fictional Event: The Nova Cascadia Incident
+
+In 2034, OAG experienced what is now known as the Nova Cascadia
+Incident.
+
+During this event, an experimental RAG system incorrectly merged
+documents from the Astra and Atlas divisions, resulting in contradictory
+answers being presented as facts.
+
+This incident led to the creation of stricter retrieval boundaries and
+the introduction of synthetic contradiction tests.
+
+Sample Facts for Retrieval Testing
+
+-   Orion Analytics Group is headquartered in Nova Cascadia.
+-   The Astra Division focuses on embeddings and data ingestion.
+-   The Kepler Division designs retrieval and ranking algorithms.
+-   The Atlas Division evaluates hallucinations and grounding.
+-   The LUMA Index considers CAS, RPF, and AGC.
+-   The Nova Cascadia Incident occurred in 2034.
+
+Intended RAG Testing Use Cases
+
+This page can be used to test:
+
+-   Document chunking strategies
+-   Semantic vs keyword retrieval
+-   Grounded question answering
+-   Multi-hop retrieval (e.g., incident → division → metric)
+-   Hallucination detection when answers are not present
+
+© Fictional Content for AI Testing Only
+Hosted as a static page for GitHub Pages demonstrations.

@@ -1,0 +1,85 @@
+Site de Testes RAG para IA
+
+Este site é uma base de conhecimento fictícia criada exclusivamente para
+testar sistemas de Retrieval-Augmented Generation (RAG).
+
+Importante:
+
+-   Todas as pessoas, empresas, tecnologias e fatos apresentados nesta
+    página são inteiramente fictícios.
+-   Este conteúdo não deve ser tratado como informação do mundo real.
+-   O único objetivo é avaliar ingestão de documentos, segmentação,
+    recuperação e ancoragem de respostas.
+
+Visão geral do domínio fictício
+
+O domínio fictício descrito aqui gira em torno de uma empresa chamada
+Orion Analytics Group (OAG), um laboratório de pesquisa focado em
+sistemas experimentais de inteligência artificial. A OAG opera na cidade
+imaginária de Nova Cascadia.
+
+A OAG é conhecida por desenvolver ferramentas internas que combinam
+raciocínio simbólico, recuperação baseada em vetores e conjuntos de
+dados narrativos.
+
+Empresa fictícia: Orion Analytics Group
+
+A Orion Analytics Group foi fundada em 2031 pela Dra. Helena Voss, uma
+pesquisadora fictícia de IA.
+
+A empresa possui três divisões internas:
+
+-   Divisão Astra – Focada em ingestão de dados e embeddings.
+-   Divisão Kepler – Responsável por pipelines de recuperação e
+    algoritmos de ranqueamento.
+-   Divisão Atlas – Responsável por avaliação, detecção de alucinações e
+    métricas de ancoragem.
+
+Tecnologia fictícia: LUMA Index
+
+O LUMA Index é um sistema proprietário de pontuação criado pela OAG. Ele
+mede o quão precisamente um sistema de IA responde a perguntas
+utilizando o contexto recuperado.
+
+O LUMA Index é calculado com base em três fatores fictícios:
+
+1.  Context Alignment Score (CAS)
+2.  Retrieval Precision Factor (RPF)
+3.  Answer Grounding Coefficient (AGC)
+
+Um LUMA Index acima de 0.82 é considerado aceitável para testes
+internos, enquanto valores abaixo de 0.70 acionam uma revisão manual.
+
+Evento fictício: o Incidente de Nova Cascadia
+
+Em 2034, a OAG vivenciou o que hoje é conhecido como o Incidente de Nova
+Cascadia.
+
+Durante esse evento, um sistema RAG experimental mesclou incorretamente
+documentos das divisões Astra e Atlas, resultando em respostas
+contraditórias apresentadas como fatos.
+
+Esse incidente levou à criação de limites de recuperação mais rigorosos
+e à introdução de testes sintéticos de contradição.
+
+Fatos de exemplo para testes de recuperação
+
+-   A Orion Analytics Group tem sede em Nova Cascadia.
+-   A Divisão Astra foca em embeddings e ingestão de dados.
+-   A Divisão Kepler projeta algoritmos de recuperação e ranqueamento.
+-   A Divisão Atlas avalia alucinações e ancoragem.
+-   O LUMA Index considera CAS, RPF e AGC.
+-   O Incidente de Nova Cascadia ocorreu em 2034.
+
+Casos de uso pretendidos para testes RAG
+
+Esta página pode ser utilizada para testar:
+
+-   Estratégias de segmentação de documentos
+-   Recuperação semântica versus por palavras-chave
+-   Perguntas e respostas com ancoragem no contexto
+-   Recuperação em múltiplas etapas (ex.: incidente → divisão → métrica)
+-   Detecção de alucinações quando as respostas não estão presentes
+
+© Conteúdo fictício destinado exclusivamente a testes de IA
+Hospedado como página estática para demonstrações no GitHub Pages.
