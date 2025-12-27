@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Install Git in container
         run: |
-          apk add --no-cache git
+          apk add --no-cache git font-noto-arabic
 
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -78,7 +78,7 @@ jobs:
               # Arabic: needs RTL support and proper fonts
               pandoc "$html" -f html -o "$outdir/${outbase}.pdf" \
                 --pdf-engine=xelatex \
-                -V mainfont="DejaVu Sans" \
+                -V mainfont="Noto Sans Arabic" \
                 -V geometry:margin=1in \
                 --variable=dir:rtl
             else
