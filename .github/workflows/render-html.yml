@@ -72,7 +72,21 @@ jobs:
 
             pandoc "$html" -f html -t docx -o "$outdir/${outbase}.docx"
             pandoc "$html" -f html -t plain -o "$outdir/${outbase}.txt"
-            pandoc "$html" -f html -o "$outdir/${outbase}.pdf" --pdf-engine=xelatex -V geometry:margin=1in
+            
+            # PDF conversion with language-specific settings
+            if [ "$lang" = "ar" ]; then
+              # Arabic: needs RTL support and proper fonts
+              pandoc "$html" -f html -o "$outdir/${outbase}.pdf" \
+                --pdf-engine=xelatex \
+                -V mainfont="DejaVu Sans" \
+                -V geometry:margin=1in \
+                --variable=dir:rtl
+            else
+              # Other languages: standard conversion
+              pandoc "$html" -f html -o "$outdir/${outbase}.pdf" \
+                --pdf-engine=xelatex \
+                -V geometry:margin=1in
+            fi
           done < html_list.txt
 
       - name: Commit to rendered-artifacts branch
