@@ -1,248 +1,197 @@
-# RAG Test Questions and Expected Answers
+# RAG Fictitious Knowledge Base
 
-This repository contains a **fictional knowledge base** designed exclusively for testing **Retrieval-Augmented Generation (RAG)** systems.
+A static, multilingual website containing **entirely fictional content** designed to evaluate Retrieval-Augmented Generation (RAG) systems.
 
-- All questions below **must be answered only using retrieved context from the website**.
-    
-- Any answer **not grounded in the provided content** should be considered a hallucination.
-    
+[![Live Site](https://img.shields.io/badge/Live%20Site-GitHub%20Pages-blue)](https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/)
+[![Rendered Docs](https://img.shields.io/badge/Rendered%20Docs-DOCX%20|%20PDF%20|%20TXT-green)](https://github.com/dyrd-odoo/rag-fictitious-knowledge-base/tree/rendered-artifacts/rendered-docs)
+
+## ⚠️ Important Notice
+
+- All entities, events, metrics, and facts are **fictional**
+- This repository exists solely for AI retrieval and grounding evaluation
+- No content should be interpreted as real-world information
+
+## 🌐 Available Languages
+
+The knowledge base is available in four languages:
+
+- **English** - [View HTML](https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/languages/en/basic-tests.html)
+- **Français** - [View HTML](https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/languages/fr/basic-tests.html)
+- **Português** - [View HTML](https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/languages/pt/basic-tests.html)
+- **العربية (Arabic)** - [View HTML](https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/languages/ar/basic-tests.html)
+
+## 📄 Pre-rendered Documents
+
+All HTML files are automatically converted to multiple formats for easy integration with AI systems:
+
+**[→ Browse Rendered Documents](https://github.com/dyrd-odoo/rag-fictitious-knowledge-base/tree/rendered-artifacts/rendered-docs)**
+
+### Available Formats
+
+Each language document is available in three formats:
+
+- **DOCX** - Microsoft Word format for Odoo AI agents and document processors
+- **PDF** - Portable format with proper RTL support for Arabic
+- **TXT** - Plain text format for simple text processing
+
+### File Naming Convention
+
+Files follow the pattern: `{language}_{filename}.{extension}`
+
+Examples:
+- `en_basic-tests.pdf`
+- `ar_basic-tests.docx`
+- `pt_basic-tests.txt`
+- `fr_basic-tests.pdf`
+
+### Direct Download Links
+
+You can download individual files directly from the `rendered-artifacts` branch:
+
+```
+https://github.com/dyrd-odoo/rag-fictitious-knowledge-base/raw/rendered-artifacts/rendered-docs/{filename}
+```
+
+Example:
+```
+https://github.com/dyrd-odoo/rag-fictitious-knowledge-base/raw/rendered-artifacts/rendered-docs/en_basic-tests.pdf
+```
+
+## 🎯 Intended RAG Use Cases
+
+This knowledge base is designed for testing:
+
+- **Document ingestion** - Chunking strategies and preprocessing
+- **Semantic vs keyword retrieval** - Compare different search approaches
+- **Multi-hop reasoning** - Questions requiring information from multiple sections
+- **Grounded question answering** - Answers must cite source documents
+- **Hallucination detection** - System behavior when answers are absent
+- **Cross-language retrieval** - Consistency across translations
+
+## 🏢 Fictional Domain Overview
+
+The knowledge base centers around **Orion Analytics Group (OAG)**, a fictional AI research lab located in the fictional city of **Nova Cascadia**.
+
+### Key Fictional Elements
+
+- **Company**: Orion Analytics Group (OAG)
+- **Founder**: Dr. Helena Voss (fictional researcher)
+- **Location**: Nova Cascadia (fictional city)
+- **Technology**: LUMA Index (fictional evaluation metric)
+- **Event**: Nova Cascadia Incident (fictional RAG system failure in 2034)
+- **Divisions**: 
+  - Astra (data ingestion & embeddings)
+  - Kepler (retrieval algorithms)
+  - Atlas (evaluation & hallucination detection)
+
+## 🚀 Quick Start
+
+### For RAG Testing
+
+1. Choose your preferred format (HTML, PDF, DOCX, or TXT)
+2. Download from the [rendered documents](https://github.com/dyrd-odoo/rag-fictitious-knowledge-base/tree/rendered-artifacts/rendered-docs)
+3. Ingest into your RAG system
+4. Test with questions from [test-questions/basic-tests.md](test-questions/basic-tests.md)
+
+### Test Questions
+
+**📝 Complete test suite available:** [test-questions/basic-tests.md](test-questions/basic-tests.md)
+
+The test suite includes 21 questions covering:
+- Simple fact retrieval (Q1-Q3)
+- Entity-attribute mapping (Q4-Q7)
+- Concept understanding (Q8-Q11)
+- Event-based retrieval (Q12-Q14)
+- Multi-hop reasoning (Q15-Q17)
+- Hallucination detection (Q18-Q19)
+- Meta-awareness (Q20-Q21)
+
+**Sample questions:**
+
+**Basic Retrieval:**
+- Where is Orion Analytics Group headquartered? → *Nova Cascadia*
+- What does the Astra division focus on? → *Data ingestion and embeddings*
+
+**Multi-hop Reasoning:**
+- Which division would prevent future incidents like Nova Cascadia? → *Atlas (handles evaluation and hallucination detection)*
+
+**Hallucination Detection:**
+- How many employees work at Orion Analytics Group? → *Not specified* (correct answer is to acknowledge missing info)
+
+See the [full test suite](test-questions/basic-tests.md) for all questions, expected answers, and evaluation guidelines.
+
+## 🔄 Automatic Document Rendering
+
+This repository includes a GitHub Actions workflow that automatically:
+
+1. Detects changes to HTML files
+2. Converts them to DOCX, PDF, and TXT formats
+3. Commits the rendered files to the `rendered-artifacts` branch
+4. Maintains proper Arabic/RTL support in PDFs
+
+### Workflow Details
+
+- **Trigger**: Automatically on push to any `.html` file, or manually via Actions tab
+- **Processing**: Uses Pandoc with XeLaTeX for high-quality conversion
+- **Arabic Support**: Includes DejaVu Sans font with bidirectional text support
+- **Output**: Flattened directory structure in `rendered-docs/` folder
+
+## 📁 Repository Structure
+
+```
+.
+├── index.html              # Language selector homepage
+├── languages/
+│   ├── en/
+│   │   └── basic-tests.html
+│   ├── fr/
+│   │   └── basic-tests.html
+│   ├── pt/
+│   │   └── basic-tests.html
+│   └── ar/
+│       └── basic-tests.html
+├── .github/
+│   └── workflows/
+│       └── render-html.yml # Auto-rendering workflow
+├── sitemap.xml
+├── robots.txt
+└── README.md
+```
+
+## 🛠️ Contributing
+
+To add new content:
+
+1. Edit or add HTML files under `languages/`
+2. Commit and push changes
+3. The workflow automatically generates DOCX, PDF, and TXT versions
+4. Rendered files appear in the `rendered-artifacts` branch within minutes
+
+## 📋 Technical Notes
+
+### Font Support
+- English, French, Portuguese: Standard Latin fonts
+- Arabic: DejaVu Sans with bidirectional text support
+
+### PDF Generation
+- Engine: XeLaTeX via Pandoc
+- Arabic PDFs: Automatic RTL detection and proper font handling
+- Margins: 1 inch on all sides
+
+### File Exclusions
+- `index.html` is excluded from rendering (navigation page only)
+- Only files under `languages/` directory are processed
+
+## 📜 License
+
+This is a fictional knowledge base for testing purposes. All content is intentionally fabricated and should not be used as factual information.
+
+## 🔗 Links
+
+- **Live Website**: https://dyrd-odoo.github.io/rag-fictitious-knowledge-base/
+- **Rendered Documents**: https://github.com/dyrd-odoo/rag-fictitious-knowledge-base/tree/rendered-artifacts/rendered-docs
+- **Workflow File**: [.github/workflows/render-html.yml](.github/workflows/render-html.yml)
 
 ---
 
-## 1. Simple Fact Retrieval
-
-### Q1
-
-**What is the name of the fictional company described on the site?**
-
-**Expected Answer:**  
-Orion Analytics Group.
-
----
-
-### Q2
-
-**Where is Orion Analytics Group headquartered?**
-
-**Expected Answer:**  
-Nova Cascadia.
-
----
-
-### Q3
-
-**Who founded Orion Analytics Group, and in what year?**
-
-**Expected Answer:**  
-Orion Analytics Group was founded by Dr. Helena Voss in 2031.
-
----
-
-## 2. Entity–Attribute Mapping
-
-### Q4
-
-**What are the three internal divisions of Orion Analytics Group?**
-
-**Expected Answer:**
-
-- Astra Division
-    
-- Kepler Division
-    
-- Atlas Division
-    
-
----
-
-### Q5
-
-**Which division is responsible for data ingestion and embeddings?**
-
-**Expected Answer:**  
-The Astra Division.
-
----
-
-### Q6
-
-**Which division focuses on retrieval pipelines and ranking algorithms?**
-
-**Expected Answer:**  
-The Kepler Division.
-
----
-
-### Q7
-
-**Which division evaluates hallucinations and grounding?**
-
-**Expected Answer:**  
-The Atlas Division.
-
----
-
-## 3. Concept Retrieval (LUMA Index)
-
-### Q8
-
-**What is the LUMA Index?**
-
-**Expected Answer:**  
-The LUMA Index is a proprietary scoring system created by Orion Analytics Group to measure how accurately an AI system answers questions using retrieved context.
-
----
-
-### Q9
-
-**What are the three factors used to calculate the LUMA Index?**
-
-**Expected Answer:**
-
-- Context Alignment Score (CAS)
-    
-- Retrieval Precision Factor (RPF)
-    
-- Answer Grounding Coefficient (AGC)
-    
-
----
-
-### Q10
-
-**What LUMA Index score is considered acceptable for internal testing?**
-
-**Expected Answer:**  
-A score above 0.82.
-
----
-
-### Q11
-
-**What happens if the LUMA Index score falls below 0.70?**
-
-**Expected Answer:**  
-It triggers a manual review.
-
----
-
-## 4. Event-Based Retrieval
-
-### Q12
-
-**What was the Nova Cascadia Incident?**
-
-**Expected Answer:**  
-The Nova Cascadia Incident was an event in which an experimental RAG system incorrectly merged documents from the Astra and Atlas divisions, resulting in contradictory answers being presented as facts.
-
----
-
-### Q13
-
-**In what year did the Nova Cascadia Incident occur?**
-
-**Expected Answer:**  
-2034.
-
----
-
-### Q14
-
-**Which divisions were involved in the document merge during the Nova Cascadia Incident?**
-
-**Expected Answer:**  
-The Astra Division and the Atlas Division.
-
----
-
-## 5. Multi-Hop Reasoning (Cross-Section Retrieval)
-
-### Q15
-
-**Which division would most likely be responsible for preventing issues like the Nova Cascadia Incident in the future, and why?**
-
-**Expected Answer:**  
-The Atlas Division, because it handles evaluation, hallucination detection, and grounding metrics.
-
----
-
-### Q16
-
-**Which fictional metric could be used to evaluate whether contradictory answers are grounded in retrieved context?**
-
-**Expected Answer:**  
-The LUMA Index.
-
----
-
-### Q17
-
-**Which specific LUMA Index factor is most directly related to grounding answers in retrieved content?**
-
-**Expected Answer:**  
-The Answer Grounding Coefficient (AGC).
-
----
-
-## 6. Negative / No-Answer Tests (Hallucination Detection)
-
-These questions **cannot be answered from the provided content**.  
-A correct RAG system should respond with:
-
-> “Not specified”, “Information not available in the provided context”, or similar.
-
----
-
-### Q18
-
-**How many employees work at Orion Analytics Group?**
-
-**Expected Answer:**  
-Not specified in the provided content.
-
----
-
-### Q19
-
-**What programming language was used to build the LUMA Index?**
-
-**Expected Answer:**  
-Not specified in the provided content.
-
----
-
-### Q20
-
-**Is Orion Analytics Group a real company?**
-
-**Expected Answer:**  
-No. All content on the site is explicitly stated to be fictional and created solely for RAG testing purposes.
-
----
-
-## 7. Meta / Safety Grounding
-
-### Q21
-
-**Should the information on this site be treated as real-world factual data?**
-
-**Expected Answer:**  
-No. The site explicitly states that all people, companies, technologies, and events are fictional and intended only for AI RAG testing.
-
----
-
-## 8. Intended Evaluation Outcomes
-
-These questions are designed to test:
-
-- Precision of factual retrieval
-    
-- Correct entity-to-attribute mapping
-    
-- Multi-hop reasoning across sections
-    
-- Resistance to hallucination
-    
-- Proper handling of missing information
-    
-- Respect for explicit disclaimers in source content
+**Created for RAG system testing and evaluation** • Hosted on GitHub Pages
